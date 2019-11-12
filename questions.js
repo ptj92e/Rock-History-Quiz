@@ -24,4 +24,4 @@ let questions = [
         choices: ["Metallica", "Black Sabbath", "Iron Maiden", "Dream Theater"],
         answer: "Black Sabbath",
     },
-]
+];
