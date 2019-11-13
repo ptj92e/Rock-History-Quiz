@@ -49,7 +49,7 @@ function createEl() {
 
 function textContent() {
     questTextEl.textContent = questTitle;
-    questions[1].choices.forEach(function(choice) {
+    questions[0].choices.forEach(function(choice) {
         buttonA.textContent = questions[0].choices[0];
         buttonB.textContent = questions[0].choices[1];
         buttonC.textContent = questions[0].choices[2];
