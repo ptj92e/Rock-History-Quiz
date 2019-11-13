@@ -3,8 +3,9 @@ let questNumEl = document.getElementById("questNum");
 let questTextEl = document.getElementById("questText");
 let buttonsEl = document.getElementById("buttons");
 let startQuizBtn = document.getElementById("startQuiz");
-let buttonsAB = document.getElementById("answerAB");
-let buttonsCD = document.getElementById("answerCD");
+let answersDiv = document.getElementById("answers");
+
+let questTitle = questions[0].title;
 
 let secondsLeft = 80;
 
@@ -35,27 +36,24 @@ function createEl() {
     buttonC.setAttribute("class", "btn btn-light col-md-4 col-sm-8 m-3");  
     buttonD.setAttribute("class", "btn btn-light col-md-4 col-sm-8 m-3");  
 
-    buttonA.addEventListener("click", selectAnswer);
-    buttonB.addEventListener("click", selectAnswer);
-    buttonC.addEventListener("click", selectAnswer);
-    buttonD.addEventListener("click", selectAnswer);
-
     buttonA.setAttribute("id", "buttonA");
     buttonB.setAttribute("id", "buttonB");
     buttonC.setAttribute("id", "buttonC");  
     buttonD.setAttribute("id", "buttonD");  
 
-    buttonsAB.appendChild(buttonA);
-    buttonsAB.appendChild(buttonB);
-    buttonsCD.appendChild(buttonC);
-    buttonsCD.appendChild(buttonD);
+    answersDiv.appendChild(buttonA);
+    answersDiv.appendChild(buttonB);
+    answersDiv.appendChild(buttonC);
+    answersDiv.appendChild(buttonD);
 }
 
 function textContent() {
-    
-}
-
-function selectAnswer() {
-    
+    questTextEl.textContent = questTitle;
+    questions[1].choices.forEach(function(choice) {
+        buttonA.textContent = questions[0].choices[0];
+        buttonB.textContent = questions[0].choices[1];
+        buttonC.textContent = questions[0].choices[2];
+        buttonD.textContent = questions[0].choices[3];
+    })
 }
 
