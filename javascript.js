@@ -21,6 +21,7 @@ function startQuiz() {
    }, 1000);
    startQuizBtn.remove();
    createEl();
+   textContent();
 }
 
 function createEl() {
@@ -29,10 +30,15 @@ function createEl() {
     let buttonC = document.createElement("button");
     let buttonD = document.createElement("button");
 
-    buttonA.setAttribute("class", "btn btn-light col-4 m-3");
-    buttonB.setAttribute("class", "btn btn-light col-4 m-3");
-    buttonC.setAttribute("class", "btn btn-light col-4 m-3");  
-    buttonD.setAttribute("class", "btn btn-light col-4 m-3");  
+    buttonA.setAttribute("class", "btn btn-light col-md-4 col-sm-8 m-3");
+    buttonB.setAttribute("class", "btn btn-light col-md-4 col-sm-8 m-3");
+    buttonC.setAttribute("class", "btn btn-light col-md-4 col-sm-8 m-3");  
+    buttonD.setAttribute("class", "btn btn-light col-md-4 col-sm-8 m-3");  
+
+    buttonA.addEventListener("click", selectAnswer);
+    buttonB.addEventListener("click", selectAnswer);
+    buttonC.addEventListener("click", selectAnswer);
+    buttonD.addEventListener("click", selectAnswer);
 
     buttonA.setAttribute("id", "buttonA");
     buttonB.setAttribute("id", "buttonB");
@@ -43,5 +49,13 @@ function createEl() {
     buttonsAB.appendChild(buttonB);
     buttonsCD.appendChild(buttonC);
     buttonsCD.appendChild(buttonD);
+}
+
+function textContent() {
+    
+}
+
+function selectAnswer() {
+    
 }
 
