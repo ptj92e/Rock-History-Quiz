@@ -5,14 +5,19 @@ let questTextEl = document.getElementById("questText");
 let buttonsEl = document.getElementById("buttons");
 let startQuizBtn = document.getElementById("startQuiz");
 let answersDiv = document.getElementById("answers");
+
 //Question Variables
-let questTitle = questions[0].title;
-let questChoices = questions[0].choices;
-let questAnswer = questions[0].answer;
+let i = 0;
+let questTitle = questions[i].title;
+let questChoices = questions[i].choices;
+let questAnswer = questions[i].answer;
+
 //Timer Variables
 let secondsLeft = 80;
+
 //Start Button
 startQuizBtn.addEventListener("click", startQuiz);
+
 //Start Quiz Function
 function startQuiz() {
     let timerInterval = setInterval(function () {
@@ -28,6 +33,7 @@ function startQuiz() {
    textContent();
    answerChoice();
 }
+
 //Creating and Appending Questions and Answers
 function createEl() {
     let buttonA = document.createElement("button");
@@ -55,6 +61,7 @@ function createEl() {
     answersDiv.appendChild(buttonC);
     answersDiv.appendChild(buttonD);
 }
+
 //Circulating Between Questions
 function textContent() {
     questTextEl.textContent = questTitle;
@@ -62,20 +69,17 @@ function textContent() {
         buttonA.textContent = questChoices[0];
         buttonB.textContent = questChoices[1];
         buttonC.textContent = questChoices[2];
-        buttonD.textContent = questChoices[3];
+        buttonD.textContent = questChoices[3];    
     })
 }
+
 //Click Listeners for Answer
-answersDiv.addEventListener("click", function(event) {
-    if(event.target.matches("button")) {
-
-    }
-})
-
 function answerChoice() {
-    if (buttonsEl.getAttribute("data-answer") === questAnswer) {
-        questions++;
-    } else {
-        secondsLeft - 10;
-    }
+    answersDiv.addEventListener("click", function(event) {
+        if(event.target.matches("button")) {
+
+        } else {
+            
+        }
+    })
 }
