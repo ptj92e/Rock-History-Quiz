@@ -5,6 +5,7 @@ let questTextEl = document.getElementById("questText");
 let buttonsEl = document.getElementById("buttons");
 let startQuizBtn = document.getElementById("startQuiz");
 let answersDiv = document.getElementById("answers");
+let scoreHistory = document.getElementById("scores");
 
 //Question Variables
 let i = 0;
@@ -12,7 +13,7 @@ let i = 0;
 //Timer Variables
 let secondsLeft = 80;
 let highScore = "";
-let playerInitials = "";
+let playerName = "";
 
 //Start Button
 startQuizBtn.addEventListener("click", startQuiz);
@@ -23,15 +24,16 @@ function startQuiz() {
         timeEl.textContent = secondsLeft;
         secondsLeft--;
 
-        if (secondsLeft === -1 || i >= 4) {
+        if (secondsLeft === -1 || i >= 5) {
             clearInterval(timerInterval);
             highScore = secondsLeft;
-            
+            scoreScreen();
         }
-   }, 1000);
-   startQuizBtn.remove();
-   createEl();
-   textContent();
+    }, 1000);
+    startQuizBtn.remove();
+    createEl();
+    textContent();
+    viewScores();
 }
 
 //Creating and Appending Questions and Answers
@@ -80,7 +82,7 @@ function textContent() {
 
 //Answer Choice Function
 function answerChoice() { 
-    if(event.target.matches("button") && event.target.getAttribute("data-answer") === questions[i].answer) {
+    if (event.target.matches("button") && event.target.getAttribute("data-answer") === questions[i].answer) {
         i++;
         textContent();
     } else {
@@ -88,3 +90,25 @@ function answerChoice() {
     }   
 }
 
+function scoreScreen() {
+    answersDiv.remove();
+    questTextEl.textContent = "Congratulations! What is your name?";
+
+    let userInput = document.createElement("input");
+    let submitButton = document.createElement("button");
+
+    submitButton.setAttribute("class", "btn btn-light col-3 m-auto");
+    userInput.setAttribute("class", "form-group col-7 m-auto justify-content-center");
+    userInput.setAttribute("id", "full-name");
+
+    submitButton.textContent = "Submit";
+
+    buttonsEl.appendChild(userInput);
+    buttonsEl.appendChild(submitButton);
+}
+
+function viewScores() {
+    scoreHistory.addEventListener("click", function() {
+        console.log(highScore);
+    })
+}
