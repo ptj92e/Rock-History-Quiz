@@ -12,6 +12,7 @@ let i = 0;
 //Timer Variables
 let secondsLeft = 80;
 let highScore = "";
+let playerInitials = "";
 
 //Start Button
 startQuizBtn.addEventListener("click", startQuiz);
