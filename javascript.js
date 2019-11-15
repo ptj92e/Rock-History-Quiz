@@ -75,7 +75,6 @@ function textContent() {
         buttonB.setAttribute("data-answer", questions[i].choices[1]);
         buttonC.setAttribute("data-answer", questions[i].choices[2]);  
         buttonD.setAttribute("data-answer", questions[i].choices[3]);  
-    
     })
 }
 
