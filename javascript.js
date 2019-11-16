@@ -6,6 +6,8 @@ let buttonsEl = document.getElementById("buttons");
 let startQuizBtn = document.getElementById("startQuiz");
 let answersDiv = document.getElementById("answers");
 let scoreHistory = document.getElementById("scores");
+let nameDisplay = document.getElementById("player-name");
+let scoreDisplay = document.getElementById("high-score");
 
 //Question Variables
 let i = 0;
@@ -18,6 +20,7 @@ let playerName = "";
 //Start Button
 startQuizBtn.addEventListener("click", startQuiz);
 answersDiv.addEventListener("click", answerChoice);
+
 //Start Quiz Function
 function startQuiz() {
     let timerInterval = setInterval(function () {
@@ -33,7 +36,6 @@ function startQuiz() {
     startQuizBtn.remove();
     createEl();
     textContent();
-    viewScores();
 }
 
 //Creating and Appending Questions and Answers
@@ -80,8 +82,31 @@ function textContent() {
     })
 }
 
+function scoreScreen() {
+    answersDiv.remove();
+    questTextEl.textContent = "Congratulations! You scored: " + highScore + "! What is your name?";
+
+    let userInput = document.createElement("input");
+    let submitButton = document.createElement("button");
+
+    submitButton.setAttribute("class", "btn btn-light col-3 m-auto");
+    submitButton.setAttribute("id", "submit");
+    userInput.setAttribute("class", "form-group col-7 m-auto justify-content-center");
+    userInput.setAttribute("id", "full-name");
+
+    submitButton.textContent = "Submit";
+
+    buttonsEl.appendChild(userInput);
+    buttonsEl.appendChild(submitButton);   
+
+    submitButton.addEventListener("click", submitScore);
+}
 //Answer Choice Function
 function answerChoice() { 
+    if (!event.target.matches("button")) {
+        return;
+    }
+
     if (event.target.matches("button") && event.target.getAttribute("data-answer") === questions[i].answer) {
         i++;
         textContent();
@@ -90,25 +115,13 @@ function answerChoice() {
     }   
 }
 
-function scoreScreen() {
-    answersDiv.remove();
-    questTextEl.textContent = "Congratulations! What is your name?";
-
-    let userInput = document.createElement("input");
-    let submitButton = document.createElement("button");
-
-    submitButton.setAttribute("class", "btn btn-light col-3 m-auto");
-    userInput.setAttribute("class", "form-group col-7 m-auto justify-content-center");
-    userInput.setAttribute("id", "full-name");
-
-    submitButton.textContent = "Submit";
-
-    buttonsEl.appendChild(userInput);
-    buttonsEl.appendChild(submitButton);
+function submitScore() {
+    let nameValue = document.getElementById("full-name").value;
+    playerName = nameValue.trim();
+    nameDisplay.textContent = playerName;
+    scoreDisplay.textContent = highScore;
+    console.log(playerName);
+    console.log(highScore);
 }
 
-function viewScores() {
-    scoreHistory.addEventListener("click", function() {
-        console.log(highScore);
-    })
-}
+
