@@ -121,6 +121,7 @@ function submitScore() {
     playerName = nameValue.trim();
     localStorage.setItem("playerName", playerName);
     localStorage.setItem("highScore", highScore);
+    window.location.href="scores.html";
 }
 
 
