@@ -6,8 +6,6 @@ let buttonsEl = document.getElementById("buttons");
 let startQuizBtn = document.getElementById("startQuiz");
 let answersDiv = document.getElementById("answers");
 let scoreHistory = document.getElementById("scores");
-let nameDisplay = document.getElementById("player-name");
-let scoreDisplay = document.getElementById("high-score");
 
 //Question Variables
 let i = 0;
@@ -68,6 +66,9 @@ function createEl() {
 
 //Circulating Between Questions
 function textContent() {
+    if (questions[i] === undefined) {
+        return;
+    }
     questTextEl.textContent = questions[i].title;
     questions[i].choices.forEach(function(event) {
         buttonA.textContent = questions[i].choices[0];
@@ -118,10 +119,8 @@ function answerChoice() {
 function submitScore() {
     let nameValue = document.getElementById("full-name").value;
     playerName = nameValue.trim();
-    nameDisplay.textContent = playerName;
-    scoreDisplay.textContent = highScore;
-    console.log(playerName);
-    console.log(highScore);
+    localStorage.setItem("playerName", playerName);
+    localStorage.setItem("highScore", highScore);
 }
 
 
