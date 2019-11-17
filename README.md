@@ -3,7 +3,7 @@
 For this task, I have been asked to create a quiz using javascript that saves high scores, and changes questions based off of certain parameters. 
 
 ## Walkthrough
--------
+
 # Start Quiz
 
 Upon opening the quiz, you are prompted with a button to start the quiz. When you click on the quiz, the text on the screen changes and there are four buttons that are created on the screen that include the answer choices. There is also a timer that starts in the upper right hand corner that counts down from 80 seconds. When the Start Button is clicked, there are a series of events that happen which change the look of the screen. 
