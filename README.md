@@ -16,8 +16,8 @@ Upon opening the quiz, you are prompted with a button to start the quiz. When yo
 # Answer Choices
 
 Next, there is an event listener located on that answers div that checks the data values of the buttons clicked. If the data value of the button clicked matches the data value of the answer in the questions.js sheet, then the index of the questions in the variable changes and a new question and selection of answer choices is brought in. If the wrong answer is clicked, then 10 seconds is taken off of the clock. Also, in that function, if what is clicked is not a button, propogation is stopped and nothing happens and tha quiz runs like normal. 
--------
+
 # Score Screen
 
 When all of the correct answer choices have been selected, the timer is stopped and the screen asks you for your name. Once you input your name, hit the submit button and it takes you to the high scores page where you can see your name next to the score you received on the quiz. 
--------
+
