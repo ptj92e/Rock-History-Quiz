@@ -12,7 +12,6 @@ let i = 0;
 
 //Timer Variables
 let secondsLeft = 80;
-let highScore = "";
 let playerName = "";
 
 //Score Variables
@@ -30,9 +29,15 @@ function startQuiz() {
 
         if (secondsLeft === -1 || i >= 5) {
             clearInterval(timerInterval);
-            highScore = secondsLeft;
             scoreScreen();
         }
+
+        if (Math.sign(secondsLeft) === -1) {
+            secondsLeft = 0;
+            clearInterval(timerInterval);
+            scoreScreen();
+        }
+
     }, 1000);
     startQuizBtn.remove();
     createEl();
