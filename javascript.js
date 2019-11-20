@@ -32,8 +32,8 @@ function startQuiz() {
             scoreScreen();
         }
 
-        if (Math.sign(secondsLeft) === -1) {
-            secondsLeft = 0;
+        if (secondsLeft <= 0) {
+            timeEl.textContent = "";
             clearInterval(timerInterval);
             scoreScreen();
         }
