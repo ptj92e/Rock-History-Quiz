@@ -15,6 +15,9 @@ let secondsLeft = 80;
 let highScore = "";
 let playerName = "";
 
+//Score Variables
+let userScore = 0
+
 //Start Button
 startQuizBtn.addEventListener("click", startQuiz);
 answersDiv.addEventListener("click", answerChoice);
@@ -85,7 +88,7 @@ function textContent() {
 
 function scoreScreen() {
     answersDiv.remove();
-    questTextEl.textContent = "Congratulations! You scored: " + highScore + "! What is your name?";
+    questTextEl.textContent = "Congratulations! You scored: " + userScore + "! What is your name?";
 
     let userInput = document.createElement("input");
     let submitButton = document.createElement("button");
@@ -110,9 +113,12 @@ function answerChoice() {
 
     if (event.target.matches("button") && event.target.getAttribute("data-answer") === questions[i].answer) {
         i++;
+        userScore++;
         textContent();
     } else {
         secondsLeft -= 10; 
+        i++;
+        textContent();
     }   
 }
 
@@ -120,7 +126,7 @@ function submitScore() {
     let nameValue = document.getElementById("full-name").value;
     playerName = nameValue.trim();
     localStorage.setItem("playerName", playerName);
-    localStorage.setItem("highScore", highScore);
+    localStorage.setItem("highScore", userScore);
     window.location.href="scores.html";
 }
 
