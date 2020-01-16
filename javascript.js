@@ -49,7 +49,8 @@ function startQuiz() {
     createEl();
     //This fills in the text content of the first question
     textContent();
-};
+}
+
 //Creating and Appending Questions and Answers
 function createEl() {
     //Creates buttons
@@ -77,7 +78,8 @@ function createEl() {
     answersDiv.appendChild(buttonB);
     answersDiv.appendChild(buttonC);
     answersDiv.appendChild(buttonD);
-};
+}
+
 //Circulating Between Questions
 function textContent() {
     //If the question doesn't exist, then it returns out of the function
@@ -98,7 +100,7 @@ function textContent() {
         buttonC.setAttribute("data-answer", questions[i].choices[2]);  
         buttonD.setAttribute("data-answer", questions[i].choices[3]);  
     });
-};
+}
 //This function creates a screen that congratulates the user and creates elements to input their name
 function scoreScreen() {
     //This recmoves the div that the answer choices are created in
@@ -120,13 +122,13 @@ function scoreScreen() {
     buttonsEl.appendChild(submitButton);   
     //This adds a click listener to the submit button
     submitButton.addEventListener("click", submitScore);
-};
+}
 //Answer Choice Function
 function answerChoice() { 
     //This if statement says that if the click on the div does not match a button, then return out of the click event
     if (!event.target.matches("button")) {
         return;
-    };
+    }
     //If the event clicks on a button and the data attribute matches the questions answer, then increase the user score and change the question. If it does not, take 10 seconds off of the clock and change the answer
     if (event.target.matches("button") && event.target.getAttribute("data-answer") === questions[i].answer) {
         i++;
@@ -136,15 +138,16 @@ function answerChoice() {
         secondsLeft -= 10; 
         i++;
         textContent();
-    };   
-};
+    }   
+}
 //This function submits the score the user earned
 function submitScore() {
+    //This sets the player's name to a variable and that is then set to local storage
     let nameValue = document.getElementById("full-name").value;
     playerName = nameValue.trim();
     localStorage.setItem("playerName", playerName);
     localStorage.setItem("highScore", userScore);
     window.location.href="scores.html";
-};
+}
 
 
