@@ -1,6 +1,10 @@
 ## Rock-History-Quiz
 
-For this task, I have been asked to create a quiz using javascript that saves high scores, and changes questions based off of certain parameters. 
+I have created a quiz using javascript that saves high scores, and changes questions based off of certain parameters. 
+
+If you would like to take the quiz yourself, follow the link here: https://ptj92e.github.io/Rock-History-Quiz/
+
+![Rock Music Quiz](/assets/images/RockQuiz.png)
 
 ## Walkthrough
 
